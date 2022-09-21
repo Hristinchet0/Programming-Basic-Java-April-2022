@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class P11OddEvenPosition {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner((System.in));
+
+        int numbers = Integer.parseInt(scanner.nextLine());
+
+        double oddSum = 0;
+        double oddMaxNumber = -Double.MAX_VALUE;
+        double oddMinNumber = Double.MAX_VALUE;
+
+        double evenSum = 0;
+        double evenMaxNumber = -Double.MAX_VALUE;
+        double evenMinNumber = Double.MAX_VALUE;
+
+        for (int i = 1; i <= numbers; i++) {
+            double num = Double.parseDouble(scanner.nextLine());
+            if (i % 2 == 0) {
+                evenSum += num;
+                if (num < evenMinNumber) {
+                    evenMinNumber = num;
+                }
+                if (num > evenMaxNumber) {
+                    evenMaxNumber = num;
+                }
+            } else {
+                oddSum += num;
+                if (num < oddMinNumber) {
+                    oddMinNumber = num;
+                }
+                if (num > oddMaxNumber) {
+                    oddMaxNumber = num;
+                }
+            }
+
+        }
+
+        System.out.printf("OddSum=%.2f,\n", oddSum);
+        if (oddMinNumber == Double.MAX_VALUE && oddMaxNumber == -Double.MAX_VALUE)  {
+            System.out.println("OddMin=No,");
+            System.out.println("OddMax=No,");
+        } else {
+            System.out.printf("OddMin=%.2f,\n", oddMinNumber);
+            System.out.printf("OddMax=%.2f,\n", oddMaxNumber);
+        }
+
+        System.out.printf("EvenSum=%.2f,\n", evenSum);
+        if (evenMinNumber == Double.MAX_VALUE && evenMaxNumber == -Double.MAX_VALUE) {
+            System.out.println("EvenMin=No,");
+            System.out.println("EvenMax=No");
+        } else {
+            System.out.printf("EvenMin=%.2f,\n", evenMinNumber);
+            System.out.printf("EvenMax=%.2f", evenMaxNumber);
+        }
+
+    }
+}

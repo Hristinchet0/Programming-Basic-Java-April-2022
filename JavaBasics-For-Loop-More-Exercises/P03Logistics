@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class P03Logistics {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int numberCargo = Integer.parseInt(scanner.nextLine());
+
+        double microbus = 0;
+        double truck = 0;
+        double train = 0;
+        double averagePrice = 0;
+        double totalTonsCargo = 0;
+        double microbusPrice = 0;
+        double truckPrice = 0;
+        double trainPrice = 0;
+
+        for (int i = 1; i <= numberCargo ; i++) {
+            int tonsCargo = Integer.parseInt(scanner.nextLine());
+
+            totalTonsCargo += tonsCargo;
+
+            if ( tonsCargo <= 3) {
+                microbus += tonsCargo;
+                microbusPrice = microbus * 200.00;
+            } else if (tonsCargo <= 11) {
+                truck += tonsCargo;
+                truckPrice = truck * 175.00;
+            } else {
+                train +=  tonsCargo;
+                trainPrice = train * 120.00;
+            }
+            averagePrice = (microbusPrice + truckPrice + trainPrice) / totalTonsCargo;
+        }
+        System.out.printf("%.2f\n", averagePrice);
+        System.out.printf("%.2f%%\n", microbus  / totalTonsCargo * 100);
+        System.out.printf("%.2f%%\n", truck / totalTonsCargo * 100);
+        System.out.printf("%.2f%%", train / totalTonsCargo * 100);
+    }
+}

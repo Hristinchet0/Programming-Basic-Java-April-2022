@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class p05GameOfIntervals {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double moves = Double.parseDouble(scanner.nextLine());
+
+        double numbers0to9 = 0;
+        double numbers10to19 = 0;
+        double numbers20to29 = 0;
+        double numbers30to39 = 0;
+        double numbers40to50 = 0;
+        double invalidNumbers = 0;
+        double totalPoints = 0.0;
+
+        for (int i = 1; i <= moves; i++) {
+            double number = Double.parseDouble(scanner.nextLine());
+            if (number >= 0 && number <= 9) {
+                numbers0to9++;
+                totalPoints = totalPoints + (0.20 * number);
+            } else if (number >= 10 && number <= 19) {
+                numbers10to19++;
+                totalPoints = totalPoints + (0.30 * number);
+            } else if (number >= 20 && number <= 29) {
+                numbers20to29++;
+                totalPoints = totalPoints + (0.40 * number);
+            } else if (number >= 30 && number <= 39) {
+                numbers30to39++;
+                totalPoints = totalPoints + 50;
+            } else if (number >= 40 && number <= 50) {
+                numbers40to50++;
+                totalPoints = totalPoints + 100;
+            } else {
+                invalidNumbers++;
+                totalPoints = totalPoints / 2;
+            }
+        }
+        System.out.printf("%.2f\n", totalPoints);
+        System.out.printf("From 0 to 9: %.2f%%\n", numbers0to9 / moves * 100);
+        System.out.printf("From 10 to 19: %.2f%%\n", numbers10to19 / moves * 100);
+        System.out.printf("From 20 to 29: %.2f%%\n", numbers20to29 / moves * 100);
+        System.out.printf("From 30 to 39: %.2f%%\n", numbers30to39 / moves * 100);
+        System.out.printf("From 40 to 50: %.2f%%\n", numbers40to50 / moves * 100);
+        System.out.printf("Invalid numbers: %.2f%%", invalidNumbers / moves * 100);
+    }
+}

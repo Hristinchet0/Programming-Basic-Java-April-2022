@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class P02Hospital {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int period = Integer.parseInt(scanner.nextLine()); //
+
+        int doctors = 7;
+        int threatedPatients = 0;
+        int unThreatedPatients = 0;
+
+        for (int i = 1; i <= period; i++) {
+            int currentPatients = Integer.parseInt(scanner.nextLine());
+            if (i % 3 == 0) { // на шсеки 3 дни докторите се увеличават с 1, ако нелекуваните са повече от лекуваните
+                if (unThreatedPatients > threatedPatients) {
+                    doctors++; //брояч на докторите от 7 ++
+                }
+            }
+            if (doctors < currentPatients) { //тотал неизлекуваните пациенти които се изпращат в др болница
+                threatedPatients += doctors;
+                unThreatedPatients += currentPatients - doctors;
+            } else { // лекуваните
+                threatedPatients += currentPatients;
+            }
+
+        }
+        System.out.printf("Treated patients: %d.\n", threatedPatients);
+        System.out.printf("Untreated patients: %d.", unThreatedPatients);
+
+
+    }
+}
