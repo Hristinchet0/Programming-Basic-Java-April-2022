@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class P01PipesInPool {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int poolVolume = Integer.parseInt(scanner.nextLine());
+        int p1 = Integer.parseInt(scanner.nextLine());
+        int p2  = Integer.parseInt(scanner.nextLine());
+        double hours = Double.parseDouble(scanner.nextLine());
+
+        //Да се отпечата на конзолата едно от двете възможни състояния:
+        //До колко се е запълнил басейна и коя тръба с колко процента е допринесла.
+        //"The pool is {запълненост на басейна в проценти}% full. Pipe 1: {процент вода от първата тръба}%. Pipe 2: {процент вода от втората тръба}%."
+        //Aко басейнът се е препълнил – с колко литра е прелял за даденото време.
+        //"For {часовете, които тръбите са пълнили вода} hours the pool overflows with {литрите вода в повече} liters."
+
+       double totalWater = (p1 + p2) * hours;
+
+       if (totalWater <= poolVolume) {
+           System.out.printf("The pool is %.2f%% full. Pipe 1: %.2f%%. Pipe 2: %.2f%%.", (totalWater / poolVolume * 100), (p1 * hours / totalWater * 100), p2 * hours / totalWater * 100);
+       } else {
+           System.out.printf("For %f hours the pool overflows with %f liters.", hours, totalWater - poolVolume);
+
+       }
+    }
+}

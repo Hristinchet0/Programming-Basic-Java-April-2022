@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class P06Pets {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+         int days = Integer.parseInt(scanner.nextLine());
+         double leftoverFood = Double.parseDouble(scanner.nextLine());
+         double dogFoodKg = Double.parseDouble(scanner.nextLine());
+         double catFoodKg = Double.parseDouble(scanner.nextLine());
+         double turtleFoodGr = Double.parseDouble(scanner.nextLine());
+
+         double totalEatFood =(dogFoodKg + catFoodKg + (turtleFoodGr * 0.001)) * days;
+
+         //•	Ако оставената храна Е достатъчна:
+        //o	"{килограма остатък} kilos of food left."
+        //	Резултатът трябва да е закръглен към по-ниското цяло число
+
+        //•	Ако оставената храна НЕ Е достатъчна:
+        //o	“{килограма недостигат} more kilos of food are needed.”
+        //	Резултатът трябва да е закръглен към по-високото цяло число
+
+         if (leftoverFood >= totalEatFood) {
+             System.out.printf("%.0f kilos of food left.", Math.floor(leftoverFood - totalEatFood));
+         } else {
+             System.out.printf("%.0f more kilos of food are needed.", Math.ceil(totalEatFood - leftoverFood));
+         }
+    }
+}

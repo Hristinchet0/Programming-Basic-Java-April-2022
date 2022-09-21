@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class P03Harvest {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int vineyardArea = Integer.parseInt(scanner.nextLine());
+        double grapePerSquare = Double.parseDouble(scanner.nextLine());
+        int neededLiters = Integer.parseInt(scanner.nextLine());
+        int workers = Integer.parseInt(scanner.nextLine());
+
+        double totalGrapeKg = vineyardArea * grapePerSquare;
+        double totalWine = (totalGrapeKg * 0.40) / 2.5;
+
+        //•	Ако произведеното вино е по-малко от нужното:
+        //o	“It will be a tough winter! More {недостигащо вино} liters wine needed.”
+        //	Резултатът трябва да е закръглен към по-ниско цяло число
+
+        if (totalWine < neededLiters) {
+            double wineNeeded = neededLiters - totalWine;
+            System.out.printf("It will be a tough winter! More %.0f liters wine needed.",Math.floor(wineNeeded));
+        }
+        //•	Ако произведеното вино е колкото или повече от нужното:
+        //o	“Good harvest this year! Total wine: {общо вино} liters.”
+        //	Резултатът трябва да е закръглен към по-ниско цяло число
+        //o	“{Оставащо вино} liters left -> {вино за 1 работник} liters per person.”
+        //	И двата резултата трябва да са закръглени към по-високото цяло число
+        else {
+            double wineLeft = totalWine - neededLiters;
+            System.out.printf("Good harvest this year! Total wine: %.0f liters.%n %.0f liters left -> %.0f liters per person.",Math.ceil(totalWine), Math.ceil(wineLeft), Math.ceil(wineLeft / workers));
+        }
+    }
+}
