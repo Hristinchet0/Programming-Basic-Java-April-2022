@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class P02LettersCombinations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        char fromSymbol = scanner.nextLine().charAt(0); //Ред 1.	Малка буква от английската азбука за начало на интервала – от ‘a’ до ‚z’.
+        char toSymbol = scanner.nextLine().charAt(0); //Ред 2.	Малка буква от английската азбука за край на интервала  – от първата буква до ‚z’.
+        char toIgnore = scanner.nextLine().charAt(0); //Ред 3.	Малка буква от английската азбука – от ‘a’ до ‚z’ – като комбинациите съдържащи тази буквата се пропускат.
+        int counter = 0;
+
+        for(char i=fromSymbol ; i<=toSymbol ; i++){ // първи символ
+            for(char j=fromSymbol ; j<=toSymbol ; j++){ //втори символ
+                for(char k=fromSymbol ; k<=toSymbol ; k++){ //трети символ
+                    if (i!=toIgnore && j!=toIgnore && k!=toIgnore){ // игнорираме повтарящите се
+                        System.out.print("" + i + j + k + " "); // принт комбинации
+                        counter++; // брояч комбинации
+                    }
+                }
+            }
+        }
+        System.out.println(counter); //принт комбинации
+    }
+}

@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class P05ChallengeTheWedding {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int men = Integer.parseInt(scanner.nextLine());
+        int woman = Integer.parseInt(scanner.nextLine());
+        int tables = Integer.parseInt(scanner.nextLine());
+
+        int tableCounter = 0;
+        //Всяка маса има две места.
+        for (int m = 1; m <= men; m++) {
+            for (int w = 1; w <= woman; w++) {
+                System.out.printf("(%d <-> %d) ", m, w);
+                tableCounter++;
+                if (tableCounter == tables) { //Ако бъдат заети всички маси, програмата трябва да приключи.
+                    return;
+                }
+            }
+        }
+
+    }
+}

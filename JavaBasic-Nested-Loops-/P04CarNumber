@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class P04CarNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int firstNumber = Integer.parseInt(scanner.nextLine());
+        int lastNumber = Integer.parseInt(scanner.nextLine());
+
+        for (int num1 = firstNumber; num1 <= lastNumber; num1++) {
+            for (int num2 = firstNumber; num2 <= lastNumber; num2++) {
+                for (int num3 = firstNumber; num3 <= lastNumber; num3++) {
+                    for (int num4 = firstNumber; num4 <= lastNumber; num4++) {
+                        //•	Ако номерът започва с четна цифра, то той трябва да завършва на нечетна цифра
+                        // и обратното – ако започва с нечетна,  завършва на четна
+                        //•	Първата цифра от номера е по-голяма от последната
+                        //•	Сумата от втората и третата цифра трябва да е четно число
+                        boolean isEvenNum1 = num1 % 2 == 0;
+                        boolean isOddNum1 = num1 % 2 != 0;
+                        boolean isEvenNum4 = num4 % 2 == 0;
+                        boolean isOddNum4 = num4 % 2 != 0;
+                        boolean isNum1Bigger = num1 > num4;
+                        boolean isEvenSum = (num2 + num3) % 2 ==0;
+                        if ((isEvenNum1 && isOddNum4) || (isOddNum1 && isEvenNum4)) {
+                            if (isNum1Bigger && isEvenSum) {
+                                System.out.printf("%d%d%d%d ", num1, num2, num3, num4);
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
