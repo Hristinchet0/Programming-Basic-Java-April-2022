@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class P02ReportSystem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int targetSum = Integer.parseInt(scanner.nextLine());
+
+        double sum = 0;
+
+        int cardPayments = 0;
+        int cashPayments = 0;
+
+        int counter = 0;
+        int successfulCardPayment = 0;
+        int successfulCashPayment = 0;
+
+        while (sum < targetSum) {
+            String input = scanner.nextLine();
+            if (input.equals("End")) {
+                break;
+            }
+            int money = Integer.parseInt(input);
+            counter++;
+
+            if (counter % 2 == 0 && money >= 10) {
+                successfulCardPayment++;
+                cardPayments += money;
+                sum += money;
+                System.out.println("Product sold!");
+            } else if (counter % 2 != 0 && money <= 100) {
+                successfulCashPayment++;
+                cashPayments += money;
+                sum += money;
+                System.out.println("Product sold!");
+            } else {
+                System.out.println("Error in transaction!");
+            }
+        }
+        if (sum >= targetSum) {
+            double averageCash = cashPayments * 1.0 / successfulCashPayment; //umnojavame po 1.0 zashtoto chaspayments e v int
+            double averageCard = cardPayments * 1.0 / successfulCardPayment;
+            System.out.printf("Average CS: %.2f\n", averageCash);
+            System.out.printf("Average CC: %.2f", averageCard);
+        } else {
+            System.out.println("Failed to collect required money for charity.");
+        }
+
+    }
+}
