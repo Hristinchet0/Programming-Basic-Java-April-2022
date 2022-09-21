@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class P01BirthdayParty {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double hallRental = Double.parseDouble(scanner.nextLine());
+
+        double cake = hallRental * 0.2;
+        double drinks = cake - (cake * 0.45);
+        double animator = hallRental / 3;
+        double total = cake + drinks + animator + hallRental;
+
+        System.out.println(total);
+
+    }
+}

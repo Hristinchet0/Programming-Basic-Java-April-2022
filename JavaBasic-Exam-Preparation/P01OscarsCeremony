@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class P01OscarsCeremony {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int hallPrice = Integer.parseInt(scanner.nextLine());
+
+        // •	Статуетки  – цената им е 30% по-малка от наема на залата
+        //•	Кетъринг – цената му е 15% по-малка от тази на статуетките
+        //•	Озвучаване – цената му е 1 / 2 от цената за кетъринг
+
+        double figurinesPrice = hallPrice - (hallPrice * 0.3);
+        double catering = figurinesPrice - (figurinesPrice * 0.15);
+        double music = catering / 2;
+        double total = figurinesPrice + catering + music + hallPrice;
+        System.out.printf("%.2f", total);
+    }
+}

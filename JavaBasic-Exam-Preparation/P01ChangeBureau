@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class P01ChangeBureau {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int bitcoin = Integer.parseInt(scanner.nextLine());
+        double cny = Double.parseDouble(scanner.nextLine());
+        double commission = Double.parseDouble(scanner.nextLine());
+
+        //валутни курсове:
+        //•	1 биткойн = 1168 лева.
+        //•	1 китайски юан = 0.15 долара.
+        //•	1 долар = 1.76 лева.
+        //•	1 евро = 1.95 лева.
+        //exit -> euro - commission
+        double bitcoinLv = bitcoin * 1168;
+        double cnyUsd = cny * 0.15;
+        double cnyLv = cnyUsd * 1.76;
+        double totalLv = bitcoinLv + cnyLv;
+        double totalEuro = totalLv / 1.95;
+        double totalWithCommission = totalEuro - (totalEuro * commission / 100);
+
+        System.out.printf("%.2f", totalWithCommission);
+    }
+}
