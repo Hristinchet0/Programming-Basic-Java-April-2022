@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class P05TrainingLab {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double lofroom = Double.parseDouble(scanner.nextLine());
+        double wofroom = Double.parseDouble(scanner.nextLine());
+
+        int wofpiece = 70;
+        int lofpiece= 120;
+        int wofcoordidor = 100;
+
+        double wRoomWithoutCooridor = (wofroom * 100) - wofcoordidor;
+        double wRoomPieces = Math.floor(wRoomWithoutCooridor / wofpiece);
+        double lRoomPieces = Math.floor((lofroom * 100) / lofpiece);
+
+        System.out.print((wRoomPieces * lRoomPieces)-3);
+    }
+}

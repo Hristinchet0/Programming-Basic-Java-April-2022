@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+public class P02TriangleArea {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        //лице на триъгълник: area = a * h / 2
+        double a = Double.parseDouble(scanner.nextLine());
+        double h = Double.parseDouble(scanner.nextLine());
+        double triangleArea = a * h / 2;
+        System.out.printf("%.2f", triangleArea);
+    }
+}

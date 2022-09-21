@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class P09WeatherForecast {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        //При въвеждане на "sunny" трябва да се отпечата "It's warm outside!".
+        // Във всички останали случаи трябва да се отпечата "It's cold outside!".
+        String text = scanner.nextLine().toLowerCase();
+
+        if (text.equals("sunny")) {
+            System.out.println("It's warm outside!");
+        } else {
+            System.out.println("It's cold outside!");
+        }
+
+    }
+}

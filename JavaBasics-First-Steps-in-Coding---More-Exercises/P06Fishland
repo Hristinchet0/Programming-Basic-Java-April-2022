@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class P06Fishland {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        //Първи ред – цена на скумрията на килограм
+        //Втори ред – цена на цацата на килограм
+        //Трети ред – килограма паламуд
+        //Четвърти ред – килограма сафрид
+        //Пети ред – килограма миди
+        double mackerelFishPrice = Double.parseDouble(scanner.nextLine());
+        double spratFishPrice = Double.parseDouble(scanner.nextLine());
+        double bonitoFishKg = Double.parseDouble(scanner.nextLine());
+        double horseMackerelFishKg = Double.parseDouble(scanner.nextLine());
+        double musselsKg = Double.parseDouble(scanner.nextLine());
+        //Паламуд – 60% по-скъп от скумрията
+        //Сафрид – 80% по-скъп от цацата
+        //Миди – 7.50 лв. за килограм
+        double bonitoFishPrice = (mackerelFishPrice + (mackerelFishPrice * 60 / 100.00)) * bonitoFishKg;
+        double horseMackerelFishPrice = (spratFishPrice + (spratFishPrice * 80 / 100.00)) * horseMackerelFishKg;
+        double musselsPrice= musselsKg * 7.50;
+        double totalPrice = bonitoFishPrice + horseMackerelFishPrice + musselsPrice;
+        System.out.printf("%.2f", totalPrice);
+
+
+
+    }
+}

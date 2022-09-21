@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class P07HousePainting {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        //x – височината на къщата
+        //y – дължината на страничната стена
+        //h – височината на триъгълната стена на прокрива
+        double x = Double.parseDouble(scanner.nextLine());
+        double y = Double.parseDouble(scanner.nextLine());
+        double h = Double.parseDouble(scanner.nextLine());
+
+        double frontAndRearWallArea = ((x * x) * 2) - (1.2 * 2.0);
+        double sideWallArea = ((x * y) * 2) - ((1.5 * 1.5) * 2);
+        double roofArea = ((x * y) * 2) + ((x * h / 2.0) * 2);
+        //Стени: Разхода на зелената боя е 1 литър за 3.4 м2
+        //Покрив: Разхода на червената боя – 1 литър за 4.3 м2.
+        double totalWallPaint = (frontAndRearWallArea + sideWallArea) / 3.4;
+        double totalRoofPaint = roofArea / 4.3;
+        //колко литра боя е нужна за боядисването на къщaта?
+        //Да се отпечатат на конзолата две числа всяко на нов ред:
+        //Литрите зелена боя
+        //Литритe червена боя
+        //Форматирани до вторият знак след десетичната запетая.
+        System.out.printf("%.2f %n %.2f", totalWallPaint, totalRoofPaint);
+
+
+
+    }
+}

@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class P04VegetableMarket {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double priceVegetables = Double.parseDouble(scanner.nextLine());
+        double priceFruits = Double.parseDouble(scanner.nextLine());
+        double totalVegetablesKg = Double.parseDouble(scanner.nextLine());
+        double totalFruitsKg = Double.parseDouble(scanner.nextLine());
+        //едно евро е равно на 1.94лв
+        double totalVegetablesPrice = ((priceVegetables * totalVegetablesKg) + (priceFruits * totalFruitsKg));
+        double totalPriceEuro = totalVegetablesPrice / 1.94;
+        System.out.printf("%.2f", totalPriceEuro);
+    }
+}
