@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class P02BraceletStand {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double terezaMoneyPerDay =Double.parseDouble(scanner.nextLine());
+        double moneyProfitPerDay =Double.parseDouble(scanner.nextLine());
+        double costsMoneyForPeriod =Double.parseDouble(scanner.nextLine());
+        double giftPrize =Double.parseDouble(scanner.nextLine());
+
+        double totalTerezaMoney = terezaMoneyPerDay * 5;
+        double totalMoneyProfit = moneyProfitPerDay *5;
+        double totalSaved = totalMoneyProfit + totalTerezaMoney;
+        double total = totalSaved - costsMoneyForPeriod;
+
+        if (total >= giftPrize) {
+            System.out.printf("Profit: %.2f BGN, the gift has been purchased.", total);
+        }else {
+            System.out.printf("Insufficient money: %.2f BGN.", giftPrize - total);
+        }
+
+    }
+}

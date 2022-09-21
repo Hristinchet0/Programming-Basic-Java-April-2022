@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class P05HairSalon {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int dailyGoal = Integer.parseInt(scanner.nextLine());
+        double moneyCounter = 0;
+
+        while (moneyCounter < dailyGoal) {
+            String command = scanner.nextLine();
+            if (!command.equals("closed")) {
+                String type = scanner.nextLine();
+                if (command.equals("haircut")) {
+                    switch (type) {
+                        case "mens":
+                            moneyCounter += 15;
+                            break;
+                        case "ladies":
+                            moneyCounter += 20;
+                            break;
+                        case "kids":
+                            moneyCounter +=10;
+                            break;
+                    }
+                }
+                if (command.equals("color")) {
+                    switch (type) {
+                        case "touch up":
+                            moneyCounter += 20;
+                            break;
+                        case "full color":
+                            moneyCounter += 30;
+                            break;
+                    }
+                }
+            }
+            if (command.equals("closed")) {
+                break;
+            }
+        }
+        if (moneyCounter >= dailyGoal) {
+            System.out.println("You have reached your target for the day!");
+            System.out.printf("Earned money: %.0flv.", moneyCounter);
+        }else {
+            System.out.printf("Target not reached! You need %.0flv. more.\n", Math.abs(dailyGoal - moneyCounter));
+            System.out.printf("Earned money: %.0flv.", moneyCounter);
+        }
+    }
+}

@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class P03ExcursionCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int tourists = Integer.parseInt(scanner.nextLine());
+        String season = scanner.nextLine();
+
+        double pricePerTourist = 0;
+
+        if(season.equals("spring")) {
+            if (tourists > 5) {
+                pricePerTourist = 48.0;
+            } else {
+                pricePerTourist = 50.0;
+            }
+        }else if (season.equals("summer")) {
+            if (tourists > 5) {
+                pricePerTourist = 45.0;
+            }else {
+                pricePerTourist = 48.50;
+            }
+        }else if (season.equals("autumn")) {
+            if (tourists > 5) {
+                pricePerTourist = 49.50;
+            }else {
+                pricePerTourist = 60.0;
+            }
+        }else if (season.equals("winter")) {
+            if (tourists > 5) {
+                pricePerTourist = 85.0;
+            }else {
+                pricePerTourist = 86.0;
+            }
+        }
+        double finalPrice = pricePerTourist * tourists;
+
+        if (season.equals("summer")) {
+            finalPrice *= .85;
+        }else if (season.equals("winter")) {
+            finalPrice *= 1.08;
+        }
+        System.out.printf("%.2f leva.", finalPrice);
+    }
+}

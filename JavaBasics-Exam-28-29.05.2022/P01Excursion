@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class P01Excursion {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int peopleGroup = Integer.parseInt(scanner.nextLine());
+        int nights = Integer.parseInt(scanner.nextLine());
+        int transportCard = Integer.parseInt(scanner.nextLine());
+        int museumTickets = Integer.parseInt(scanner.nextLine());
+
+        double totalNightPrice = peopleGroup * nights* 20;
+        double totalTransportCards = peopleGroup * transportCard * 1.60;
+        double totalMuseumTickets = peopleGroup * museumTickets * 6;
+        double total = totalMuseumTickets + totalNightPrice + totalTransportCards;
+        double result = total + (total * 0.25);
+
+        System.out.printf("%.2f", result);
+
+
+    }
+}
