@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class P03Flowers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int chrysanthemums = Integer.parseInt(scanner.nextLine());
+        int roses = Integer.parseInt(scanner.nextLine());
+        int tulips = Integer.parseInt(scanner.nextLine());
+        String season = scanner.nextLine();
+        String holiday = scanner.nextLine();
+
+        double chrysanthemumsPrice = 0;
+        double rosesPrice = 0;
+        double tulipsPrice = 0;
+        double flowersPrice = 0;
+        double totalFlowers = chrysanthemums + roses + tulips;
+
+
+        if (season.equals("Spring") || (season.equals("Summer"))) {
+            chrysanthemumsPrice = chrysanthemums * 2.00;
+            rosesPrice = roses * 4.10;
+            tulipsPrice = tulips * 2.50;
+            flowersPrice = chrysanthemumsPrice + rosesPrice + tulipsPrice;
+
+
+        } else if(season.equals("Autumn") || (season.equals("Winter"))) {
+            chrysanthemumsPrice = chrysanthemums * 3.75;
+            rosesPrice = roses * 4.50;
+            tulipsPrice = tulips * 4.15;
+            flowersPrice = chrysanthemumsPrice + rosesPrice + tulipsPrice;
+
+        }
+
+        if (holiday.equals("N")) {
+            flowersPrice = chrysanthemumsPrice + rosesPrice + tulipsPrice;
+        }else if (holiday.equals("Y")) {
+            flowersPrice = flowersPrice + (flowersPrice * 0.15);
+        }
+
+        if ((tulips > 7) && (season.equals("Spring"))) {
+            flowersPrice = flowersPrice - (flowersPrice * 0.05);
+        }
+        if ((roses >=10) && (season.equals("Winter"))) {
+            flowersPrice = flowersPrice - (flowersPrice * 0.10);
+        }
+        if (totalFlowers >= 20) {
+            flowersPrice = flowersPrice - (flowersPrice * 0.20);
+        }
+
+        System.out.printf("%.2f", flowersPrice + 2);
+
+    }
+}

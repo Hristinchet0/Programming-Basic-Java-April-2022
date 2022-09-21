@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class P02BikeRace {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int juniorParticipants = Integer.parseInt(scanner.nextLine());
+        int seniorParticipants = Integer.parseInt(scanner.nextLine());
+        String route = scanner.nextLine();
+
+        double juniorTicketPrice = 0;
+        double seniorTicketPrice = 0;
+        double totalTicketsPrice = 0;
+        double result = 0;
+        double totalParticipants = juniorParticipants + seniorParticipants;
+
+
+        if (route.equals("trail")) {
+            juniorTicketPrice = 5.50 * juniorParticipants;
+            seniorTicketPrice = 7 * seniorParticipants;
+            totalTicketsPrice = juniorTicketPrice + seniorTicketPrice;
+            result = totalTicketsPrice - (totalTicketsPrice * 0.05);
+        } else if (route.equals("downhill")) {
+            juniorTicketPrice = 12.25 * juniorParticipants;
+            seniorTicketPrice = 13.75 * seniorParticipants;
+            totalTicketsPrice = juniorTicketPrice + seniorTicketPrice;
+            result = totalTicketsPrice - (totalTicketsPrice * 0.05);
+        } else if (route.equals("road")) {
+            juniorTicketPrice = 20 * juniorParticipants;
+            seniorTicketPrice = 21.50 * seniorParticipants;
+            totalTicketsPrice = juniorTicketPrice + seniorTicketPrice;
+            result = totalTicketsPrice - (totalTicketsPrice * 0.05);
+        } else if (route.equals("cross-country")) {
+            juniorTicketPrice = 8 * juniorParticipants;
+            seniorTicketPrice = 9.50 * seniorParticipants;
+            totalTicketsPrice = juniorTicketPrice + seniorTicketPrice;
+            result = totalTicketsPrice - (totalTicketsPrice * 0.05);
+            if (totalParticipants >= 50) {
+                totalTicketsPrice = (juniorTicketPrice + seniorTicketPrice) - ((juniorTicketPrice + seniorTicketPrice) * 0.25) ;
+                result = totalTicketsPrice - (totalTicketsPrice * 0.05);
+            }
+
+        }
+        System.out.printf("%.2f", result);
+    }
+}

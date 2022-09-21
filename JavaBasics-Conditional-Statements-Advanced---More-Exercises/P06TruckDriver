@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class P06TruckDriver {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String season = scanner.nextLine();
+        double kmMonth = Double.parseDouble(scanner.nextLine());
+        double salary = 0.0;
+        double totalSalary = 0.0;
+
+        if (kmMonth > 10000 && kmMonth <= 20000) {
+            salary = kmMonth * 1.45 * 4;
+            totalSalary = salary - (salary * 0.10);
+            switch (season) {
+                case "Spring":
+                case "Summer":
+                case "Autumn":
+                case "Winter":
+                    System.out.printf("%.2f", totalSalary);
+                    break;
+
+            }
+        } else if (kmMonth > 5000 && kmMonth <= 10000) {
+            switch (season) {
+                case "Spring":
+                case "Autumn":
+                    salary = kmMonth * 0.95 * 4;
+                    totalSalary = salary - (salary * 0.10);
+                    System.out.printf("%.2f", totalSalary);
+                    break;
+                case "Summer":
+                    salary = kmMonth * 1.10 * 4;
+                    totalSalary = salary - (salary * 0.10);
+                    System.out.printf("%.2f", totalSalary);
+                    break;
+                case "Winter":
+                    salary = kmMonth * 1.25 * 4;
+                    totalSalary = salary - (salary * 0.10);
+                    System.out.printf("%.2f", totalSalary);
+                    break;
+            }
+        }else if (kmMonth <= 5000){
+            switch (season) {
+                case "Spring":
+                case "Autumn":
+                    salary = kmMonth * 0.75 * 4;
+                    totalSalary = salary - (salary * 0.10);
+                    System.out.printf("%.2f", totalSalary);
+                    break;
+                case "Summer":
+                    salary = kmMonth * 0.9 * 4;
+                    totalSalary = salary - (salary * 0.10);
+                    System.out.printf("%.2f", totalSalary);
+                    break;
+                case "Winter":
+                    salary = kmMonth * 1.05 * 4;
+                    totalSalary = salary - (salary * 0.10);
+                    System.out.printf("%.2f", totalSalary);
+                    break;
+            }
+        }
+    }
+}

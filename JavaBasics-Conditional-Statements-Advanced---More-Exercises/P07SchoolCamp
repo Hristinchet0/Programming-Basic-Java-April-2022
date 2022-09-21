@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+public class P07SchoolCamp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String season = scanner.nextLine();
+        String group = scanner.nextLine();
+        int students = Integer.parseInt(scanner.nextLine());
+        int nights = Integer.parseInt(scanner.nextLine());
+        double priceNights = 0.0;
+        String sport = "";
+
+        if (season.equals("Winter")) {
+            switch (group) {
+                case "girls":
+                    priceNights = students * nights * 9.60;
+                    sport =  "Gymnastics";
+                    break;
+                case "boys":
+            priceNights = students * nights * 9.60;
+            sport =  "Judo";
+                    break;
+                case "mixed":
+                    priceNights = students * nights * 10;
+                    sport = "Ski";
+                    break;
+
+            }
+        }else if (season.equals("Spring")){
+            switch (group) {
+                case "girls":
+                    priceNights = students * nights * 7.2;
+                    sport = "Athletics";
+                    break;
+                case "boys":
+                    priceNights = students * nights * 7.2;
+                    sport = "Tennis";
+                    break;
+                case "mixed":
+                    priceNights = students * nights * 9.5;
+                    sport = "Cycling";
+                    break;
+            }
+        }else if (season.equals("Summer")) {
+            switch (group) {
+                case "girls":
+                    priceNights = students * nights * 15;
+                    sport = "Volleyball";
+                    break;
+                case "boys":
+                    priceNights = students * nights * 15;
+                    sport = "Football";
+                    break;
+                case "mixed":
+                    priceNights = students * nights * 20;
+                    sport = "Swimming";
+                    break;
+                default:
+                    break;
+            }
+        }
+        if (students >= 50) {
+            priceNights = priceNights - (priceNights * 0.5);
+        }else if (students >= 20) {
+            priceNights = priceNights - (priceNights * 0.15);
+        }else if (students >= 10) {
+            priceNights = priceNights - (priceNights * 0.05);
+
+        }
+        System.out.printf("%s %.2f lv.", sport, priceNights);
+
+    }
+}
